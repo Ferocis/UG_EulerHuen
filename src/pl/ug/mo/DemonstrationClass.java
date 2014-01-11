@@ -36,6 +36,9 @@ public class DemonstrationClass {
 	static double[] xnEuler;
 	static double[] ynEuler;
 	
+	//Zmienna dla programu (Huen)
+	static double[] ynHuen;
+	
 	
 	//Zmienne do wczytywania z klawiatury
 	public static Scanner scanner = new Scanner(System.in);
@@ -79,11 +82,18 @@ public class DemonstrationClass {
 				ynEuler[i] = ynEuler[i-1] + dlKroku * ConstantsContainer.f(xnEuler[i-1], ynEuler[i-1]);
 			}
 			
-			//********************************************
-			//W tym miejscu Euler jest juz policzony, tu
-			//zrob liczenie Hujena na tej samej dlugosci
-			//kroku, ktora jest do Eulera wczytana.
-			//********************************************
+			
+			// poczatek w chuj skomplikowanego i zajebiscie dlugiego kodu
+			ynHuen = new double[(int) N+1];
+			ynHuen[0] = 3;
+				for(int i = 1; i <= N; i++){
+					ynHuen[i] = ynHuen[i - 1] + dlKroku * 	
+							 (ConstantsContainer.f(xnEuler[i - 1], ynHuen[i - 1]) +
+									 ConstantsContainer.f(ConstantsContainer.X0 + i*dlKroku, ynEuler[i])
+											/ 2);
+				}
+			// koniec w chuj skomplikowanego i zajebiscie dlugiego kodu
+			
 			
 			//Wypisuje wybrany wynik
 			while(true) {
@@ -95,7 +105,7 @@ public class DemonstrationClass {
 					continue;
 				}
 				System.out.println("n\tEuler\tHuen\tBlad");
-				System.out.println(wynikDla + "\t" + format.format(ynEuler[wynikDla]) + "\t" + 0 + "\t" + 0);
+				System.out.println(wynikDla + "\t" + format.format(ynEuler[wynikDla]) + "\t" + format.format(ynHuen[wynikDla]) + "\t" + 0);
 			}
 			
 			odp = scanner.nextLine(); //Zostawic to tu, nie zastanawiac sie, po co, ma byc, bo tak mowi Konio.
