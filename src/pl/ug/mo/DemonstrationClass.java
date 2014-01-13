@@ -104,8 +104,8 @@ public class DemonstrationClass {
 					System.out.println("Nie istnieje taki wynik.");
 					continue;
 				}
-				System.out.println("n\tEuler\tHuen\tBlad");
-				System.out.println(wynikDla + "\t" + format.format(ynEuler[wynikDla]) + "\t" + format.format(ynHuen[wynikDla]) + "\t" + 0);
+				System.out.println("n\tEuler\tHuen\tBlad Eulera\tBlad Huena");
+				System.out.println(wynikDla + "\t" + format.format(ynEuler[wynikDla]) + "\t" + format.format(ynHuen[wynikDla]) + "\t" + format.format(ynEuler[wynikDla] - ConstantsContainer.f2(xnEuler[wynikDla - 1])) + "\t\t" + format.format(ynHuen[wynikDla] - ConstantsContainer.f2(xnEuler[wynikDla - 1])));
 			}
 			
 			odp = scanner.nextLine(); //Zostawic to tu, nie zastanawiac sie, po co, ma byc, bo tak mowi Konio.

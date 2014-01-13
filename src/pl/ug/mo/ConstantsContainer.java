@@ -11,4 +11,9 @@ public abstract class ConstantsContainer {
 	public static double f(double x, double y) {
 		return 2*Math.sqrt(y-(2*x))+2;
 	}
+	
+	
+	public static double f2(double x){
+		return  Math.pow(x, 2) + 2*x;
+	}
 }
